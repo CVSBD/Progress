@@ -1,8 +1,8 @@
-/* 1. Global Resets & Typography */
+/* 1. Global Resets */
 :root {
-    --primary: #2563eb;       /* Modern Blue */
+    --primary: #2563eb;
     --primary-dark: #1e40af;
-    --bg-color: #f3f4f6;      /* Light Gray Background */
+    --bg-color: #f3f4f6;
     --paper-color: #ffffff;
     --text-color: #1f2937;
     --border-color: #e5e7eb;
@@ -13,11 +13,11 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    padding-top: 80px; /* Space for the sticky header */
+    padding-top: 80px; /* Space for sticky header */
     line-height: 1.6;
 }
 
-/* 2. Sticky Audio Header */
+/* 2. Responsive Sticky Header */
 .audio-sticky-bar {
     position: fixed;
     top: 0;
@@ -29,7 +29,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 15px; /* Reduced padding */
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     box-sizing: border-box;
@@ -38,61 +38,58 @@ body {
 .audio-container {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    flex: 1; /* Takes available space */
 }
 
+/* Hide track title on small screens to save space */
 #track-title {
     font-weight: 600;
     color: var(--primary);
-    margin-right: 10px;
     font-size: 0.9rem;
+    white-space: nowrap;
 }
 
-/* Audio Player Styling */
 audio {
     height: 40px;
+    max-width: 300px;
+    width: 100%; /* Flexible width */
     border-radius: 20px;
     outline: none;
 }
 
-/* Back Button */
 .back-btn {
     text-decoration: none;
     color: #4b5563;
     font-weight: 600;
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 6px;
     background-color: #f9fafb;
     border: 1px solid #d1d5db;
-    transition: all 0.2s;
-    font-size: 0.9rem;
-}
-
-.back-btn:hover {
-    background-color: #e5e7eb;
-    color: #111;
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
 
 /* 3. Main Content "Paper" */
 .content-wrapper {
     max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
+    margin: 20px auto;
+    padding: 0 15px; /* Side margins on mobile */
 }
 
 .paper-sheet {
     background: var(--paper-color);
-    padding: 50px;
+    padding: 40px; /* Standard padding */
     border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     margin-bottom: 40px;
 }
 
 h1#test-header {
     text-align: center;
     color: #111827;
-    margin-bottom: 40px;
-    font-size: 2rem;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
     border-bottom: 2px solid var(--primary);
     display: inline-block;
     padding-bottom: 10px;
@@ -101,92 +98,98 @@ h1#test-header {
 /* 4. Question Styling */
 .test-section h2 {
     background-color: #f8fafc;
-    padding: 15px;
+    padding: 12px;
     border-left: 5px solid var(--primary);
     color: #334155;
     margin-top: 0;
+    font-size: 1.1rem;
     border-radius: 0 8px 8px 0;
 }
 
 .question-block {
-    margin-bottom: 40px;
-    padding: 10px 0;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
     border-bottom: 1px dashed var(--border-color);
 }
 
 .question-block p {
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #000;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
-/* 5. Answer Options (A, B, C, D) */
+/* 5. Options */
 .question-block div {
-    padding: 10px 15px;
-    margin-left: 0 !important; /* Overriding inline style from HTML */
-    margin-bottom: 8px;
+    padding: 10px;
+    margin-bottom: 5px;
     border: 1px solid transparent;
     border-radius: 6px;
     cursor: pointer;
-    transition: background 0.2s;
-    color: #4b5563;
+    font-size: 0.95rem; /* Slightly smaller text */
 }
 
 .question-block div:hover {
-    background-color: #eff6ff; /* Light blue hover */
+    background-color: #eff6ff;
     border-color: #bfdbfe;
     color: var(--primary-dark);
 }
 
-/* 6. Controls & Answer Key */
-.controls {
-    text-align: center;
-    margin: 40px 0;
-}
-
-#show-answers-btn {
-    background-color: var(--primary);
-    color: white;
-    font-size: 1.1rem;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
-    transition: transform 0.1s;
-}
-
-#show-answers-btn:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-}
-
+/* 6. Answer Key Grid */
 .answer-sheet {
-    background-color: #ecfdf5; /* Green tint */
+    background-color: #ecfdf5;
     border: 2px solid #10b981;
     border-radius: 12px;
-    padding: 30px;
-}
-
-.answer-key h3 {
-    color: #047857;
-    border-bottom: 1px solid #6ee7b7;
-    padding-bottom: 10px;
+    padding: 20px;
 }
 
 .answer-key ol {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Smaller columns */
+    gap: 8px;
     padding-left: 20px;
 }
 
-.answer-key li {
-    font-weight: bold;
-    color: #065f46;
-}
+/* --- MOBILE SPECIFIC MEDIA QUERIES --- */
+@media (max-width: 600px) {
+    /* Header Adjustments */
+    .audio-sticky-bar {
+        padding: 0 10px;
+        height: 60px;
+    }
+    
+    body {
+        padding-top: 70px; /* Adjust body padding for smaller header */
+    }
 
-.hidden {
-    display: none;
+    /* Hide text title, keep audio player */
+    #track-title {
+        display: none; 
+    }
+    
+    /* Make back button smaller */
+    .back-btn {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    /* Paper Sheet Adjustments */
+    .paper-sheet {
+        padding: 20px; /* Much smaller padding on phone */
+    }
+
+    h1#test-header {
+        font-size: 1.4rem;
+        display: block; /* Center block */
+    }
+
+    .test-section h2 {
+        font-size: 1rem;
+    }
+    
+    /* Center the Show Answer button */
+    .controls button {
+        width: 100%;
+        padding: 15px;
+    }
 }
