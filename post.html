@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test Player</title>
+    <link rel="stylesheet" href="css/post-style.css">
+</head>
+<body>
+
+    <div class="audio-sticky-bar">
+        <div class="audio-container">
+            <span id="track-title">Loading Audio...</span>
+            <audio id="audio-player" controls>
+                <source src="" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <a href="index.html" class="back-btn">← Dashboard</a>
+    </div>
+
+    <main class="content-wrapper">
+        <h1 id="test-header">Test Loading...</h1>
+
+        <div id="questions-container" class="paper-sheet">
+            <p>Loading questions...</p>
+        </div>
+
+        <div class="controls">
+            <button id="show-answers-btn">Show Answers</button>
+        </div>
+
+        <div id="answers-container" class="paper-sheet answer-sheet hidden">
+            </div>
+    </main>
+
+    <script src="js/post-script.js"></script>
+</body>
+</html>
